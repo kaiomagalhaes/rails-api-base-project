@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: <%= ENV['DB_PORT_5432_TCP_ADDR'] %>
+  pool: 5
+  user: <%= ENV['BORADANCAR_DATABASE_USER'] %>
+  password: <%= ENV['BORADANCAR_DATABASE_PASSWORD'] %>
+
+development:
+  <<: *default
+  database: godance_development
+
+test:
+  <<: *default
+  database: godance_test
+
+production:
+  <<: *default
+  database: <%= ENV['BORADANCAR_DATABASE_NAME'] %>

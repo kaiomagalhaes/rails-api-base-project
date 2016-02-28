@@ -1,0 +1,7 @@
+parameters:
+  email:
+    name: email
+    in: query
+    description: User email
+    required: true
+    type: string

@@ -1,0 +1,70 @@
+swagger: '2.0'
+info:
+  version: 0.1.0
+  title: Bora dançar - API
+  description: This API reference provides information on available endpoints and how to interact with it.
+host: server.halisson.me:3000
+basePath: /
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  '/auth':
+    post:
+      description:
+        Create user
+      tags:
+        - Auth
+      parameters:
+        - $ref: 'user_auth_parameters.yaml#/parameters/email'
+        - $ref: 'user_auth_parameters.yaml#/parameters/password'
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successful response
+          schema:
+            $ref: 'definitions.yaml#/definitions/User'
+
+        '500':
+          description: Unexpected error
+          schema:
+            $ref: 'definitions.yaml#/definitions/Error'
+
+  '/auth/sign_in':
+    post:
+      description:
+        Create user
+      tags:
+        - Auth
+      parameters:
+        - $ref: 'user_auth_parameters.yaml#/parameters/email'
+        - $ref: 'user_auth_parameters.yaml#/parameters/password'
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successful response
+          schema:
+            $ref: 'definitions.yaml#/definitions/User'
+
+          headers:
+            access-token:
+              type: string
+              description: "The access token for the application"
+
+            client:
+              type: string
+
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: 'definitions.yaml#/definitions/Error'
+
+        '500':
+          description: Unexpected error
+          schema:
+            $ref: 'definitions.yaml#/definitions/Error'

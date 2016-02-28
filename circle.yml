@@ -1,0 +1,17 @@
+machine:
+  services:
+    - docker
+
+dependencies:
+  override:
+    - if [[ -e ~/docker/image.tar ]]; then docker load -i ~/docker/image.tar; fi
+
+    - docker info
+    - mv Dockerfile.development Dockerfile
+    - docker build -t boradancar-ruby .
+    - bundle
+
+    - mkdir -p ~/docker; docker save boradancar-ruby > ~/docker/image.tar
+test:
+  override:
+    - bundle exec rspec

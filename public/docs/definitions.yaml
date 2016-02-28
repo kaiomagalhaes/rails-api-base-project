@@ -1,0 +1,23 @@
+definitions:
+  User:
+    type: object
+    properties:
+      data:
+        type: object
+        properties:
+          id:
+            type: integer
+          email:
+            type: string
+          provider:
+            type: string
+            description: >
+              User provider: google+, facebook or email.
+          uid:
+            type: string
+
+  Error:
+    type: object
+    properties:
+      message:
+        type: string
