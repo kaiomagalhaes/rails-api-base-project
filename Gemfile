@@ -23,7 +23,7 @@ group :test do
 end
 
 group :development, :test do
-  gem 'faker'
+  gem 'ffaker'
   gem 'spring'
   gem 'pry'
   gem 'rubocop'
