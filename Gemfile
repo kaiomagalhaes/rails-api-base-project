@@ -25,6 +25,7 @@ group :development, :test do
   gem 'faker'
   gem 'spring'
   gem 'pry'
+  gem 'rubocop'
 end
 
 group :production do
