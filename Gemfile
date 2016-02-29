@@ -19,6 +19,7 @@ group :test do
   gem 'json-schema'
   gem 'json_expressions'
   gem 'rspec_junit_formatter'
+  gem 'simplecov', require: false
 end
 
 group :development, :test do
