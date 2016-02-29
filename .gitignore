@@ -16,6 +16,8 @@
 !/log/.keep
 /tmp
 .idea
+coverage
+
 
 # Ignore secret files
 /config/database.yml
